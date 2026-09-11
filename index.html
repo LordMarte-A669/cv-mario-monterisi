@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mario Monterisi — CV</title>
+<meta name="description" content="Curriculum vitae di Mario Monterisi, Full-Stack Java Developer — sviluppo gestionali ERP, applicazioni con agenti AI, studente di Informatica e Tecnologie per la Produzione del Software (UniBA).">
+<style>
+  :root {
+    --ink: #15181d;
+    --muted: #5b6270;
+    --accent: #145c66;
+    --accent-soft: #e4eeef;
+    --ok: #3f7d56;
+    --rule: #dfe2e7;
+    --ground: #eef0f2;
+    --paper: #fdfcfa;
+    --ph: #fdf0c8;
+    --sans: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    margin: 0;
+    padding-inline: 16px;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+  main.sheet {
+    max-width: 208mm;
+    margin: 28px auto;
+    background: var(--paper);
+    box-shadow: 0 2px 20px rgba(20, 30, 45, .12);
+  }
+  .sheet-inner { padding: 0 17mm 15mm; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: currentColor; }
+  .ph { background: var(--ph); padding: 0 4px; border-radius: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* toolbar (screen only) */
+  .toolbar {
+    max-width: 208mm;
+    margin: 0 auto;
+    padding: 14px 0 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .btn-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ink);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 9px 16px;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-pdf:hover { background: var(--accent); }
+  .btn-pdf svg { width: 15px; height: 15px; flex: none; }
+
+  /* terminal-style header card */
+  .termcard {
+    margin: 17mm 17mm 0;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .termbar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 14px;
+    background: #eef2f2;
+    border-bottom: 1px solid var(--rule);
+  }
+  .termbar .light { width: 9px; height: 9px; border-radius: 50%; background: #cfd6d8; }
+  .termbar .path { margin-left: 8px; font-family: var(--mono); font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  header.identity {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 20px 22px;
+  }
+  .avatar {
+    flex: none;
+    width: 84px; height: 84px;
+    border-radius: 50%;
+    border: 1.5px dashed #b9c3c5;
+    background: #f4f7f7;
+    color: #8a9698;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 10.5px; text-align: center;
+    line-height: 1.3;
+  }
+  h1 { margin: 0; font-size: 27px; letter-spacing: -.01em; line-height: 1.15; }
+  .role { margin: 3px 0 10px; color: var(--accent); font-size: 15px; font-weight: 600; }
+  .contacts { display: flex; flex-wrap: wrap; gap: 5px 18px; margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: 13.3px; }
+  .contacts li { display: flex; align-items: center; gap: 6px; }
+  .contacts .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex: none; }
+
+  h2 {
+    margin: 22px 0 9px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  p { margin: 0 0 6px; }
+
+  .entry { margin-bottom: 12px; }
+  .entry-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 12px; }
+  .entry-title { margin: 0; font-size: 15.5px; font-weight: 700; }
+  .when { color: var(--muted); font-size: 13.3px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .now { color: var(--ok); font-weight: 600; }
+  .where { margin: 0 0 4px; color: var(--muted); font-size: 13.3px; }
+
+  .project { margin: 10px 0 0; break-inside: avoid; }
+  .project-title { margin: 0 0 3px; font-size: 14.3px; font-weight: 700; }
+  .stack { font-family: var(--mono); font-weight: 400; color: var(--muted); font-size: 12.3px; }
+  ul { margin: 2px 0 0; padding-left: 18px; }
+  li { margin: 2px 0; }
+  li::marker { color: var(--accent); }
+  .lead { font-weight: 600; }
+
+  .skills { display: grid; grid-template-columns: 150px 1fr; gap: 5px 14px; margin: 0; }
+  .skills dt { font-weight: 600; }
+  .skills dd { margin: 0; font-family: var(--mono); font-size: 13px; color: var(--ink); }
+
+  .cert { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .cert-meta { color: var(--muted); font-size: 12.3px; font-family: var(--mono); }
+
+  .gdpr { margin-top: 22px; color: var(--muted); font-size: 11.3px; }
+
+  @media (max-width: 640px) {
+    .toolbar { padding-inline: 4px; }
+    main.sheet { margin: 16px auto; }
+    .termcard { margin: 16px 16px 0; }
+    header.identity { flex-direction: column; align-items: flex-start; padding: 18px; }
+    .sheet-inner { padding: 0 18px 18px; }
+    h1 { font-size: 23px; }
+    .skills { grid-template-columns: 1fr; gap: 0; }
+    .skills dd { margin-bottom: 7px; }
+  }
+
+  @page { size: A4; margin: 12mm 14mm; }
+  @media print {
+    .toolbar { display: none; }
+    body { padding: 0; background: #fff; font-size: 10pt; line-height: 1.42; }
+    main.sheet { max-width: none; margin: 0; box-shadow: none; }
+    .termcard { margin: 0; border: none; border-radius: 0; }
+    .termbar { display: none; }
+    header.identity { padding: 0 0 10pt; }
+    .sheet-inner { padding: 0; }
+    .avatar { width: 60px; height: 60px; border-style: solid; }
+    h1 { font-size: 20pt; }
+    .role { font-size: 11.5pt; }
+    .contacts, .when, .where, .stack, .cert-meta { font-size: 9pt; }
+    h2 { font-size: 9pt; margin-top: 13pt; break-after: avoid; }
+    .entry-title { font-size: 10.5pt; }
+    .project-title { font-size: 10pt; }
+    .entry-head { break-after: avoid; }
+    .gdpr { font-size: 7.5pt; }
+    a { color: var(--ink); border-bottom: none; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mario Monterisi",
+  "jobTitle": "Full-Stack Java Developer",
+  "email": "mailto:mariomonterisi123@gmail.com",
+  "telephone": "+39 350 016 2850",
+  "address": { "@type": "PostalAddress", "addressLocality": "Barletta", "addressRegion": "BT", "addressCountry": "IT" },
+  "url": "https://github.com/LordMarte-A669",
+  "sameAs": ["https://github.com/LordMarte-A669"],
+  "worksFor": { "@type": "Organization", "name": "Codeka", "url": "https://www.codeka.it" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Università degli Studi di Bari Aldo Moro" },
+    { "@type": "EducationalOrganization", "name": "ITIS \"E. Fermi\", Barletta" }
+  ],
+  "knowsAbout": ["Java", "Jakarta EE", "JSF", "PrimeFaces", "TypeScript", "React", "Next.js", "Angular", "PostgreSQL", "Python", "Django REST Framework", "Claude Code", "agenti AI", "LLM", "tool use", "prompt caching", "embedding", "ricerca semantica", "Docker", "GitHub Actions"],
+  "knowsLanguage": [
+    { "@type": "Language", "name": "Italiano" },
+    { "@type": "Language", "name": "Inglese" }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="toolbar">
+  <button class="btn-pdf" id="pdfBtn" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+    Scarica PDF
+  </button>
+</div>
+
+<main class="sheet">
+  <div class="termcard">
+    <div class="termbar"><span class="light"></span><span class="light"></span><span class="light"></span><span class="path">~/mario-monterisi/cv.md</span></div>
+    <header class="identity">
+      <div class="avatar" aria-hidden="true">FOTO</div>
+      <div>
+        <h1>Mario Monterisi</h1>
+        <p class="role">Full-Stack Java Developer</p>
+        <ul class="contacts">
+          <li><span class="dot"></span>Barletta (BT)</li>
+          <li><span class="dot"></span><a href="mailto:mariomonterisi123@gmail.com">mariomonterisi123@gmail.com</a></li>
+          <li><span class="dot"></span><a href="tel:+393500162850">+39 350 016 2850</a></li>
+          <li><span class="dot"></span><a href="https://github.com/LordMarte-A669">github.com/LordMarte-A669</a></li>
+        </ul>
+      </div>
+    </header>
+  </div>
+
+  <div class="sheet-inner">
+
+  <section>
+    <h2>Profilo</h2>
+    <p>Sviluppatore full-stack con circa 14 mesi di esperienza in software house, su un gestionale ERP Java/Jakarta EE e sulle applicazioni web collegate. Lavoro sia sulle pagine sia sullo strato di framework: migrazione dell'interfaccia, analisi e correzione di difetti di piattaforma, prestazioni e test automatici.</p>
+    <p>Sviluppo con agenti AI (Claude Code) e realizzo applicazioni basate su LLM, dalla chat con tool use alla ricerca semantica. Da ottobre 2026 studio Informatica e Tecnologie per la Produzione del Software all'Università degli Studi di Bari «Aldo Moro».</p>
+  </section>
+
+  <section>
+    <h2>Esperienza</h2>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">Full-Stack Java Developer</h3>
+        <span class="when">Luglio 2025 – <span class="now">oggi</span></span>
+      </div>
+      <p class="where">Codeka · software house, Barletta</p>
+      <p>Team di 4 sviluppatori, con sviluppo assistito da agenti AI (Claude Code).</p>
+
+      <div class="project">
+        <h4 class="project-title">JERP, gestionale ERP <span class="stack">Java · Jakarta EE · JSF/PrimeFaces · PostgreSQL · WildFly</span></h4>
+        <ul>
+          <li>Migrazione dell'interfaccia da ICEfaces/JSPX a Jakarta EE con JSF e PrimeFaces; rifacimento di pagine e logica dei moduli contabilità, acquisti, vendite, logistica e magazzino.</li>
+          <li><span class="lead">Difetti di piattaforma:</span> job batch che si interrompevano oltre le 500 righe (commit dentro un cursore PostgreSQL), conflitto di librerie che oscurava l'implementazione JSF, stampe JasperReports con layout compilati illeggibili.</li>
+          <li><span class="lead">Prestazioni:</span> aggiornamento di Mojarra (JSF) con misura dei tempi per fase del ciclo di vita, e uno strumento di misura delle prestazioni adottato nel progetto.</li>
+          <li><span class="lead">Lock pessimistico:</span> separati 13 lock condivisi che bloccavano a vicenda pagine scollegate.</li>
+          <li><span class="lead">Qualità:</span> controlli automatici bloccanti prima del commit e test di regressione con JUnit, test di integrazione su PostgreSQL e Playwright.</li>
+          <li><span class="lead">Strumenti AI:</span> regole, skill e hook per Claude Code condivisi con tutto il team.</li>
+          <li>Documentazione tecnica e guide in linea per gli utenti.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h4 class="project-title">Portale Agenti B2B <span class="stack">Java · JSF · Tailwind CSS</span></h4>
+        <ul>
+          <li>Portale per gli agenti di vendita collegato all'ERP: catalogo, carrello, ordini e stampe.</li>
+          <li>Personalizzazioni per singoli clienti: condizioni di pagamento per cliente, stampa delle rimanenze, disponibilità e articoli obsoleti a catalogo.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h4 class="project-title">Fast Order <span class="stack">Java · Tailwind CSS</span></h4>
+        <ul>
+          <li>Pagine articoli e provvigioni: filtri per categoria merceologica e articoli obsoleti, spegnimento massivo degli articoli per agente, paginazione personalizzata.</li>
+          <li>Refactoring del codice duplicato (export Excel, query di conteggio, gestione degli stati HTTP) e correzione di vulnerabilità SQL injection.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h4 class="project-title">RMS, RFID Management System <span class="stack">Django REST Framework · Angular</span></h4>
+        <ul>
+          <li>Gestionale per moda e retail con tracciamento RFID: contratto OpenAPI tipizzato su 41 endpoint e gestione degli errori delle API.</li>
+          <li>Redesign di pagine del frontend Angular e workflow di CI su GitHub Actions.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <h2>Progetti personali</h2>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">PET, Personal Expense Tracker</h3>
+        <span class="when">Marzo – agosto 2026</span>
+      </div>
+      <p class="where">App web installabile (PWA) per tracciare entrate e uscite · progetto privato, non ancora open source</p>
+      <ul>
+        <li><span class="lead">Stack:</span> <span class="stack">Next.js 16 · React 19 · TypeScript · Tailwind CSS · shadcn/ui · PostgreSQL (Supabase) · Drizzle ORM · pgvector · NextAuth · Zod · Vitest · Docker</span></li>
+        <li><span class="lead">Assistente AI in chat:</span> Claude con tool use per cercare, creare e modificare transazioni in linguaggio naturale; ricerca semantica con embedding e pgvector.</li>
+        <li><span class="lead">Costi dell'AI:</span> prompt caching e un classificatore delle richieste che salta il modello per quelle semplici, con circa il 65% di token in meno per chiamata.</li>
+        <li><span class="lead">Import dei movimenti:</span> parser per PayPal, Revolut e UniCredit (CSV e PDF) con classificazione tramite AI e deduplica; import automatico dalle email di ricevuta PayPal via webhook.</li>
+        <li><span class="lead">Funzioni:</span> dashboard, grafici, transazioni ricorrenti automatiche, notifiche push, input vocale, utenti con ruoli e dati separati, documentazione API con OpenAPI/Swagger.</li>
+        <li><span class="lead">Qualità:</span> oltre 200 test automatici, validazione degli input, correzione delle segnalazioni SonarQube (vulnerabilità ReDoS, accessibilità, container non-root), versione mobile ottimizzata.</li>
+        <li><span class="lead">In corso:</span> collegamento ai conti bancari via Open Banking.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section>
+    <h2>Competenze tecniche</h2>
+    <dl class="skills">
+      <dt>Linguaggi</dt>
+      <dd>Java, TypeScript, JavaScript, SQL, Python, HTML, CSS</dd>
+      <dt>Backend</dt>
+      <dd>Jakarta EE (JSF, CDI), WildFly, Maven, Flyway, JasperReports, Django REST Framework, Node.js</dd>
+      <dt>Frontend</dt>
+      <dd>PrimeFaces, React, Next.js, Angular, Tailwind CSS, shadcn/ui</dd>
+      <dt>Database</dt>
+      <dd>PostgreSQL, pgvector, Drizzle ORM, Supabase</dd>
+      <dt>Test e qualità</dt>
+      <dd>JUnit, Playwright, Vitest, Zod, SonarQube</dd>
+      <dt>DevOps e strumenti</dt>
+      <dd>Git, GitHub Actions (CI), Docker, Vercel, Linux, IntelliJ IDEA</dd>
+      <dt>AI</dt>
+      <dd>Sviluppo con agenti (Claude Code: regole, skill, hook); applicazioni LLM con API Anthropic, tool use, embedding e ricerca semantica, prompt caching</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Lingue</h2>
+    <dl class="skills">
+      <dt>Italiano</dt>
+      <dd>Madrelingua</dd>
+      <dt>Inglese</dt>
+      <dd>
+        Livello B2 — esame Cambridge <span class="now">in corso, 21/09/2026</span><br>
+        Lingua Inglese: 10/10 all'esame di Stato, ITIS<br>
+        Certificazione Cambridge Assessment English, Young Learners English (YLE) Starters — Barletta, giugno 2019<br>
+        <span class="cert-meta">Centre IT955/0010 · Certificate No. A9538514</span>
+      </dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Istruzione</h2>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">Laurea triennale in Informatica e Tecnologie per la Produzione del Software (ITPS)</h3>
+        <span class="when">Da ottobre 2026</span>
+      </div>
+      <p class="where">Università degli Studi di Bari «Aldo Moro»</p>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">Diploma di Perito Informatico</h3>
+        <span class="when">2026</span>
+      </div>
+      <p class="where">ITIS "E. Fermi", Barletta · votazione 95/100</p>
+    </article>
+  </section>
+
+  <p class="gdpr">Autorizzo il trattamento dei dati personali contenuti nel curriculum ai sensi del Regolamento UE 2016/679 (GDPR) e del D.Lgs. 196/2003.</p>
+
+  </div>
+</main>
+
+<script>
+  document.getElementById('pdfBtn').addEventListener('click', function () {
+    var a = document.createElement('a');
+    a.href = 'CV_Mario_Monterisi.pdf';
+    a.download = 'CV_Mario_Monterisi.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+</script>
+</body>
+</html>
