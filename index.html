@@ -91,6 +91,7 @@
     padding: 20px 20px 22px;
   }
   .avatar {
+    order: -1;
     flex: none;
     width: 84px; height: 84px;
     border-radius: 50%;
@@ -138,9 +139,6 @@
   .skills dt { font-weight: 600; }
   .skills dd { margin: 0; font-family: var(--mono); font-size: 13px; color: var(--ink); }
 
-  .cert { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-  .cert-meta { color: var(--muted); font-size: 12.3px; font-family: var(--mono); }
-
   .gdpr { margin-top: 22px; color: var(--muted); font-size: 11.3px; }
 
   @media (max-width: 640px) {
@@ -166,7 +164,7 @@
     .avatar { width: 60px; height: 60px; border-style: solid; }
     h1 { font-size: 20pt; }
     .role { font-size: 11.5pt; }
-    .contacts, .when, .where, .stack, .cert-meta { font-size: 9pt; }
+    .contacts, .when, .where, .stack { font-size: 9pt; }
     h2 { font-size: 9pt; margin-top: 13pt; break-after: avoid; }
     .entry-title { font-size: 10.5pt; }
     .project-title { font-size: 10pt; }
@@ -212,7 +210,6 @@
   <div class="termcard">
     <div class="termbar"><span class="light"></span><span class="light"></span><span class="light"></span><span class="path">~/mario-monterisi/cv.md</span></div>
     <header class="identity">
-      <div class="avatar" aria-hidden="true">FOTO</div>
       <div>
         <h1>Mario Monterisi</h1>
         <p class="role">Full-Stack Java Developer</p>
@@ -223,6 +220,7 @@
           <li><span class="dot"></span><a href="https://github.com/LordMarte-A669">github.com/LordMarte-A669</a></li>
         </ul>
       </div>
+      <div class="avatar" aria-hidden="true">FOTO</div>
     </header>
   </div>
 
@@ -230,8 +228,8 @@
 
   <section>
     <h2>Profilo</h2>
-    <p>Sviluppatore full-stack con circa 14 mesi di esperienza in software house, su un gestionale ERP Java/Jakarta EE e sulle applicazioni web collegate. Lavoro sia sulle pagine sia sullo strato di framework: migrazione dell'interfaccia, analisi e correzione di difetti di piattaforma, prestazioni e test automatici.</p>
-    <p>Sviluppo con agenti AI (Claude Code) e realizzo applicazioni basate su LLM, dalla chat con tool use alla ricerca semantica. Da ottobre 2026 studio Informatica e Tecnologie per la Produzione del Software all'Università degli Studi di Bari «Aldo Moro».</p>
+    <p>Sviluppatore full-stack con esperienza in software house su un gestionale ERP Java/Jakarta EE e sulle applicazioni web collegate: migrazione dell'interfaccia, correzione di difetti di piattaforma, prestazioni e test automatici.</p>
+    <p>Sviluppo anche con agenti AI (Claude Code) e realizzo applicazioni basate su LLM. Da ottobre 2026 studio Informatica e Tecnologie per la Produzione del Software all'Università degli Studi di Bari «Aldo Moro».</p>
   </section>
 
   <section>
@@ -243,18 +241,17 @@
         <span class="when">Luglio 2025 – <span class="now">oggi</span></span>
       </div>
       <p class="where">Codeka · software house, Barletta</p>
-      <p>Team di 4 sviluppatori, con sviluppo assistito da agenti AI (Claude Code).</p>
+      <p>Tirocinio scuola-lavoro, part-time pomeridiano durante l'anno scolastico e a tempo pieno nei periodi senza scuola. Team di 4 sviluppatori, con sviluppo assistito da agenti AI (Claude Code).</p>
 
       <div class="project">
         <h4 class="project-title">JERP, gestionale ERP <span class="stack">Java · Jakarta EE · JSF/PrimeFaces · PostgreSQL · WildFly</span></h4>
         <ul>
-          <li>Migrazione dell'interfaccia da ICEfaces/JSPX a Jakarta EE con JSF e PrimeFaces; rifacimento di pagine e logica dei moduli contabilità, acquisti, vendite, logistica e magazzino.</li>
-          <li><span class="lead">Difetti di piattaforma:</span> job batch che si interrompevano oltre le 500 righe (commit dentro un cursore PostgreSQL), conflitto di librerie che oscurava l'implementazione JSF, stampe JasperReports con layout compilati illeggibili.</li>
-          <li><span class="lead">Prestazioni:</span> aggiornamento di Mojarra (JSF) con misura dei tempi per fase del ciclo di vita, e uno strumento di misura delle prestazioni adottato nel progetto.</li>
-          <li><span class="lead">Lock pessimistico:</span> separati 13 lock condivisi che bloccavano a vicenda pagine scollegate.</li>
-          <li><span class="lead">Qualità:</span> controlli automatici bloccanti prima del commit e test di regressione con JUnit, test di integrazione su PostgreSQL e Playwright.</li>
-          <li><span class="lead">Strumenti AI:</span> regole, skill e hook per Claude Code condivisi con tutto il team.</li>
-          <li>Documentazione tecnica e guide in linea per gli utenti.</li>
+          <li>Migrazione dell'interfaccia da ICEfaces/JSPX a Jakarta EE con JSF e PrimeFaces, su più moduli (contabilità, acquisti, vendite, logistica, magazzino).</li>
+          <li><span class="lead">Difetti di piattaforma:</span> job batch che si interrompevano su grandi volumi di dati per un commit dentro un cursore PostgreSQL, conflitto di librerie che oscurava l'implementazione JSF, stampe JasperReports con layout illeggibili.</li>
+          <li><span class="lead">Prestazioni:</span> aggiornamento di Mojarra (JSF) e introduzione di uno strumento di misura delle prestazioni per il progetto.</li>
+          <li><span class="lead">Lock pessimistico:</span> separazione di lock condivisi che bloccavano a vicenda pagine scollegate tra loro.</li>
+          <li><span class="lead">Qualità:</span> controlli automatici prima del commit, test di regressione con JUnit e test di integrazione su PostgreSQL e Playwright.</li>
+          <li><span class="lead">Strumenti AI:</span> regole, skill e hook per Claude Code condivisi con il team.</li>
         </ul>
       </div>
 
@@ -262,22 +259,22 @@
         <h4 class="project-title">Portale Agenti B2B <span class="stack">Java · JSF · Tailwind CSS</span></h4>
         <ul>
           <li>Portale per gli agenti di vendita collegato all'ERP: catalogo, carrello, ordini e stampe.</li>
-          <li>Personalizzazioni per singoli clienti: condizioni di pagamento per cliente, stampa delle rimanenze, disponibilità e articoli obsoleti a catalogo.</li>
+          <li>Personalizzazioni per cliente: condizioni di pagamento, disponibilità e articoli obsoleti a catalogo.</li>
         </ul>
       </div>
 
       <div class="project">
         <h4 class="project-title">Fast Order <span class="stack">Java · Tailwind CSS</span></h4>
         <ul>
-          <li>Pagine articoli e provvigioni: filtri per categoria merceologica e articoli obsoleti, spegnimento massivo degli articoli per agente, paginazione personalizzata.</li>
-          <li>Refactoring del codice duplicato (export Excel, query di conteggio, gestione degli stati HTTP) e correzione di vulnerabilità SQL injection.</li>
+          <li>Pagine articoli e provvigioni: filtri per categoria merceologica e articoli obsoleti, gestione massiva per agente.</li>
+          <li>Refactoring del codice duplicato e correzione di una vulnerabilità SQL injection.</li>
         </ul>
       </div>
 
       <div class="project">
         <h4 class="project-title">RMS, RFID Management System <span class="stack">Django REST Framework · Angular</span></h4>
         <ul>
-          <li>Gestionale per moda e retail con tracciamento RFID: contratto OpenAPI tipizzato su 41 endpoint e gestione degli errori delle API.</li>
+          <li>Gestionale per moda e retail con tracciamento RFID: contratto OpenAPI tipizzato e gestione degli errori delle API.</li>
           <li>Redesign di pagine del frontend Angular e workflow di CI su GitHub Actions.</li>
         </ul>
       </div>
@@ -295,11 +292,11 @@
       <p class="where">App web installabile (PWA) per tracciare entrate e uscite · progetto privato, non ancora open source</p>
       <ul>
         <li><span class="lead">Stack:</span> <span class="stack">Next.js 16 · React 19 · TypeScript · Tailwind CSS · shadcn/ui · PostgreSQL (Supabase) · Drizzle ORM · pgvector · NextAuth · Zod · Vitest · Docker</span></li>
-        <li><span class="lead">Assistente AI in chat:</span> Claude con tool use per cercare, creare e modificare transazioni in linguaggio naturale; ricerca semantica con embedding e pgvector.</li>
-        <li><span class="lead">Costi dell'AI:</span> prompt caching e un classificatore delle richieste che salta il modello per quelle semplici, con circa il 65% di token in meno per chiamata.</li>
-        <li><span class="lead">Import dei movimenti:</span> parser per PayPal, Revolut e UniCredit (CSV e PDF) con classificazione tramite AI e deduplica; import automatico dalle email di ricevuta PayPal via webhook.</li>
-        <li><span class="lead">Funzioni:</span> dashboard, grafici, transazioni ricorrenti automatiche, notifiche push, input vocale, utenti con ruoli e dati separati, documentazione API con OpenAPI/Swagger.</li>
-        <li><span class="lead">Qualità:</span> oltre 200 test automatici, validazione degli input, correzione delle segnalazioni SonarQube (vulnerabilità ReDoS, accessibilità, container non-root), versione mobile ottimizzata.</li>
+        <li><span class="lead">Assistente AI in chat:</span> Claude con tool use per gestire le transazioni in linguaggio naturale, con ricerca semantica su embedding.</li>
+        <li><span class="lead">Costi dell'AI:</span> prompt caching e un classificatore che evita il modello per le richieste più semplici.</li>
+        <li><span class="lead">Import dei movimenti:</span> parser per PayPal, Revolut e UniCredit (CSV e PDF) con classificazione tramite AI e deduplica.</li>
+        <li><span class="lead">Funzioni:</span> dashboard, grafici, transazioni ricorrenti automatiche, notifiche push, input vocale, utenti con ruoli e dati separati.</li>
+        <li><span class="lead">Qualità:</span> suite di test automatici, validazione degli input, correzione delle segnalazioni SonarQube, versione mobile ottimizzata.</li>
         <li><span class="lead">In corso:</span> collegamento ai conti bancari via Open Banking.</li>
       </ul>
     </article>
@@ -331,12 +328,7 @@
       <dt>Italiano</dt>
       <dd>Madrelingua</dd>
       <dt>Inglese</dt>
-      <dd>
-        Livello B2 — esame Cambridge <span class="now">in corso, 21/09/2026</span><br>
-        Lingua Inglese: 10/10 all'esame di Stato, ITIS<br>
-        Certificazione Cambridge Assessment English, Young Learners English (YLE) Starters — Barletta, giugno 2019<br>
-        <span class="cert-meta">Centre IT955/0010 · Certificate No. A9538514</span>
-      </dd>
+      <dd>Livello B2 — esame Cambridge <span class="now">in corso</span>; 10/10 all'esame di Stato, ITIS</dd>
     </dl>
   </section>
 
