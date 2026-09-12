@@ -189,7 +189,7 @@
     { "@type": "CollegeOrUniversity", "name": "Università degli Studi di Bari Aldo Moro" },
     { "@type": "EducationalOrganization", "name": "ITIS \"E. Fermi\", Barletta" }
   ],
-  "knowsAbout": ["Java", "Jakarta EE", "JSF", "PrimeFaces", "TypeScript", "React", "Next.js", "Angular", "PostgreSQL", "Python", "Django REST Framework", "Claude Code", "agenti AI", "LLM", "tool use", "prompt caching", "embedding", "ricerca semantica", "Docker", "GitHub Actions"],
+  "knowsAbout": ["Java", "Jakarta EE", "JSF", "PrimeFaces", "TypeScript", "React", "Next.js", "Angular", "PostgreSQL", "Python", "Django REST Framework", "Claude Code", "agenti AI", "Docker", "GitHub Actions"],
   "knowsLanguage": [
     { "@type": "Language", "name": "Italiano" },
     { "@type": "Language", "name": "Inglese" }
@@ -229,7 +229,7 @@
   <section>
     <h2>Profilo</h2>
     <p>Sviluppatore full-stack con esperienza in software house su un gestionale ERP Java/Jakarta EE e sulle applicazioni web collegate: migrazione dell'interfaccia, correzione di difetti di piattaforma, prestazioni e test automatici.</p>
-    <p>Sviluppo anche con agenti AI (Claude Code) e realizzo applicazioni basate su LLM. Da ottobre 2026 studio Informatica e Tecnologie per la Produzione del Software all'Università degli Studi di Bari «Aldo Moro».</p>
+    <p>Sviluppo anche con agenti AI (Claude Code). Da ottobre 2026 studio Informatica e Tecnologie per la Produzione del Software all'Università degli Studi di Bari «Aldo Moro».</p>
   </section>
 
   <section>
@@ -241,17 +241,13 @@
         <span class="when">Luglio 2025 – <span class="now">oggi</span></span>
       </div>
       <p class="where">Codeka · software house, Barletta</p>
-      <p>Tirocinio scuola-lavoro, part-time pomeridiano durante l'anno scolastico e a tempo pieno nei periodi senza scuola. Team di 4 sviluppatori, con sviluppo assistito da agenti AI (Claude Code).</p>
+      <p>Tirocinio scuola-lavoro, part-time pomeridiano durante l'anno scolastico e a tempo pieno nei periodi senza scuola. Lavoro in team, con sviluppo assistito da agenti AI (Claude Code).</p>
 
       <div class="project">
         <h4 class="project-title">JERP, gestionale ERP <span class="stack">Java · Jakarta EE · JSF/PrimeFaces · PostgreSQL · WildFly</span></h4>
         <ul>
           <li>Migrazione dell'interfaccia da ICEfaces/JSPX a Jakarta EE con JSF e PrimeFaces, su più moduli (contabilità, acquisti, vendite, logistica, magazzino).</li>
-          <li><span class="lead">Difetti di piattaforma:</span> job batch che si interrompevano su grandi volumi di dati per un commit dentro un cursore PostgreSQL, conflitto di librerie che oscurava l'implementazione JSF, stampe JasperReports con layout illeggibili.</li>
-          <li><span class="lead">Prestazioni:</span> aggiornamento di Mojarra (JSF) e introduzione di uno strumento di misura delle prestazioni per il progetto.</li>
-          <li><span class="lead">Lock pessimistico:</span> separazione di lock condivisi che bloccavano a vicenda pagine scollegate tra loro.</li>
-          <li><span class="lead">Qualità:</span> controlli automatici prima del commit, test di regressione con JUnit e test di integrazione su PostgreSQL e Playwright.</li>
-          <li><span class="lead">Strumenti AI:</span> regole, skill e hook per Claude Code condivisi con il team.</li>
+          <li>Individuazione e correzione di diversi difetti di piattaforma, interventi sulle prestazioni, e test automatici e di integrazione.</li>
         </ul>
       </div>
 
@@ -270,14 +266,6 @@
           <li>Refactoring del codice duplicato e correzione di una vulnerabilità SQL injection.</li>
         </ul>
       </div>
-
-      <div class="project">
-        <h4 class="project-title">RMS, RFID Management System <span class="stack">Django REST Framework · Angular</span></h4>
-        <ul>
-          <li>Gestionale per moda e retail con tracciamento RFID: contratto OpenAPI tipizzato e gestione degli errori delle API.</li>
-          <li>Redesign di pagine del frontend Angular e workflow di CI su GitHub Actions.</li>
-        </ul>
-      </div>
     </article>
   </section>
 
@@ -291,7 +279,7 @@
       </div>
       <p class="where">App web installabile (PWA) per tracciare entrate e uscite · progetto privato, non ancora open source</p>
       <ul>
-        <li><span class="lead">Stack:</span> <span class="stack">Next.js 16 · React 19 · TypeScript · Tailwind CSS · shadcn/ui · PostgreSQL (Supabase) · Drizzle ORM · pgvector · NextAuth · Zod · Vitest · Docker</span></li>
+        <li><span class="lead">Stack:</span> <span class="stack">Next.js 16 · React 19 · TypeScript · Tailwind CSS · PostgreSQL (Supabase) · Drizzle ORM · pgvector · NextAuth · Zod · Vitest · Docker</span></li>
         <li><span class="lead">Assistente AI in chat:</span> Claude con tool use per gestire le transazioni in linguaggio naturale, con ricerca semantica su embedding.</li>
         <li><span class="lead">Costi dell'AI:</span> prompt caching e un classificatore che evita il modello per le richieste più semplici.</li>
         <li><span class="lead">Import dei movimenti:</span> parser per PayPal, Revolut e UniCredit (CSV e PDF) con classificazione tramite AI e deduplica.</li>
@@ -308,17 +296,15 @@
       <dt>Linguaggi</dt>
       <dd>Java, TypeScript, JavaScript, SQL, Python, HTML, CSS</dd>
       <dt>Backend</dt>
-      <dd>Jakarta EE (JSF, CDI), WildFly, Maven, Flyway, JasperReports, Django REST Framework, Node.js</dd>
+      <dd>Jakarta EE (JSF, CDI), WildFly, Maven, Django REST Framework, Node.js</dd>
       <dt>Frontend</dt>
-      <dd>PrimeFaces, React, Next.js, Angular, Tailwind CSS, shadcn/ui</dd>
-      <dt>Database</dt>
-      <dd>PostgreSQL, pgvector, Drizzle ORM, Supabase</dd>
+      <dd>PrimeFaces, React, Next.js, Angular, Tailwind CSS</dd>
       <dt>Test e qualità</dt>
       <dd>JUnit, Playwright, Vitest, Zod, SonarQube</dd>
       <dt>DevOps e strumenti</dt>
       <dd>Git, GitHub Actions (CI), Docker, Vercel, Linux, IntelliJ IDEA</dd>
       <dt>AI</dt>
-      <dd>Sviluppo con agenti (Claude Code: regole, skill, hook); applicazioni LLM con API Anthropic, tool use, embedding e ricerca semantica, prompt caching</dd>
+      <dd>Sviluppo con agenti (Claude Code: regole, skill, hook)</dd>
     </dl>
   </section>
 
@@ -328,7 +314,7 @@
       <dt>Italiano</dt>
       <dd>Madrelingua</dd>
       <dt>Inglese</dt>
-      <dd>Livello B2 — esame Cambridge <span class="now">in corso</span>; 10/10 all'esame di Stato, ITIS</dd>
+      <dd>Livello B2 — esame Cambridge <span class="now">in corso</span>; 10/10 in Lingua Inglese allo scrutinio finale, ITIS</dd>
     </dl>
   </section>
 
@@ -337,18 +323,18 @@
 
     <article class="entry">
       <div class="entry-head">
-        <h3 class="entry-title">Laurea triennale in Informatica e Tecnologie per la Produzione del Software (ITPS)</h3>
-        <span class="when">Da ottobre 2026</span>
-      </div>
-      <p class="where">Università degli Studi di Bari «Aldo Moro»</p>
-    </article>
-
-    <article class="entry">
-      <div class="entry-head">
         <h3 class="entry-title">Diploma di Perito Informatico</h3>
         <span class="when">2026</span>
       </div>
       <p class="where">ITIS "E. Fermi", Barletta · votazione 95/100</p>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">Laurea triennale in Informatica e Tecnologie per la Produzione del Software (ITPS)</h3>
+        <span class="when">Da ottobre 2026</span>
+      </div>
+      <p class="where">Università degli Studi di Bari «Aldo Moro»</p>
     </article>
   </section>
 
