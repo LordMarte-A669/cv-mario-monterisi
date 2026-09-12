@@ -54,8 +54,30 @@
     margin: 0 auto;
     padding: 14px 0 0;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
   }
+  .lang-switch {
+    display: inline-flex;
+    border: 1px solid var(--rule);
+    border-radius: 7px;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .lang-switch button {
+    border: none;
+    background: transparent;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    padding: 9px 14px;
+    cursor: pointer;
+  }
+  .lang-switch button + button { border-left: 1px solid var(--rule); }
+  .lang-switch button.active { background: var(--accent); color: #fff; }
+  .lang-switch button:not(.active):hover { background: var(--accent-soft); color: var(--accent); }
   .btn-pdf {
     display: inline-flex;
     align-items: center;
@@ -188,6 +210,7 @@
   }
 
   @media (max-width: 380px) {
+    .toolbar { flex-wrap: wrap; }
     .band { padding: 18px 16px; }
     .sheet-inner { padding: 18px 16px 16px; }
     .avatar { width: 48px; height: 48px; }
@@ -247,9 +270,13 @@
 <body>
 
 <div class="toolbar">
+  <div class="lang-switch" id="langSwitch" role="group" aria-label="Lingua / Language">
+    <button type="button" data-lang="it" class="active">IT</button>
+    <button type="button" data-lang="en">EN</button>
+  </div>
   <button class="btn-pdf" id="pdfBtn" type="button">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-    Scarica PDF
+    <span data-i18n="pdfBtn">Scarica PDF</span>
   </button>
 </div>
 
@@ -271,43 +298,43 @@
   <div class="sheet-inner">
 
   <section>
-    <h2>Profilo</h2>
-    <p>Sviluppatore full-stack con esperienza in software house su un gestionale ERP Java/Jakarta EE e sulle applicazioni web collegate: migrazione dell'interfaccia, correzione di difetti di piattaforma, prestazioni e test automatici.</p>
-    <p>Sviluppo anche con agenti AI (Claude Code). Da ottobre 2026 studio Informatica e Tecnologie per la Produzione del Software all'Università degli Studi di Bari «Aldo Moro».</p>
+    <h2 data-i18n="h-profile">Profilo</h2>
+    <p data-i18n="profile-p1">Sviluppatore full-stack con esperienza in software house su un gestionale ERP Java/Jakarta EE e sulle applicazioni web collegate: migrazione dell'interfaccia, correzione di difetti di piattaforma, prestazioni e test automatici.</p>
+    <p data-i18n="profile-p2">Sviluppo anche con agenti AI (Claude Code). Da ottobre 2026 studio Informatica e Tecnologie per la Produzione del Software all'Università degli Studi di Bari «Aldo Moro».</p>
   </section>
 
   <section>
-    <h2>Esperienza</h2>
+    <h2 data-i18n="h-experience">Esperienza</h2>
 
     <article class="entry">
-      <span class="when">Luglio 2025 – <span class="now">oggi</span></span>
+      <span class="when" data-i18n="exp-when">Luglio 2025 – <span class="now">oggi</span></span>
       <span class="dot"></span>
       <div class="content">
         <h3 class="entry-title">Full-Stack Java Developer</h3>
-        <p class="where">Codeka · software house, Barletta</p>
-        <p>Tirocinio scuola-lavoro, part-time pomeridiano durante l'anno scolastico e a tempo pieno nei periodi senza scuola. Lavoro in team, con sviluppo assistito da agenti AI (Claude Code).</p>
+        <p class="where" data-i18n="exp-where">Codeka · software house, Barletta</p>
+        <p data-i18n="exp-desc">Tirocinio scuola-lavoro, part-time pomeridiano durante l'anno scolastico e a tempo pieno nei periodi senza scuola. Lavoro in team, con sviluppo assistito da agenti AI (Claude Code).</p>
 
         <div class="project">
-          <h4 class="project-title">JERP, gestionale ERP <span class="stack">Java · Jakarta EE · JSF/PrimeFaces · PostgreSQL · WildFly</span></h4>
+          <h4 class="project-title"><span data-i18n="jerp-title">JERP, gestionale ERP</span> <span class="stack">Java · Jakarta EE · JSF/PrimeFaces · PostgreSQL · WildFly</span></h4>
           <ul>
-            <li>Migrazione dell'interfaccia da ICEfaces/JSPX a Jakarta EE con JSF e PrimeFaces, su più moduli (contabilità, acquisti, vendite, logistica, magazzino).</li>
-            <li>Individuazione e correzione di diversi difetti di piattaforma, interventi sulle prestazioni, e test automatici e di integrazione.</li>
+            <li data-i18n="jerp-b1">Migrazione dell'interfaccia da ICEfaces/JSPX a Jakarta EE con JSF e PrimeFaces, su più moduli (contabilità, acquisti, vendite, logistica, magazzino).</li>
+            <li data-i18n="jerp-b2">Individuazione e correzione di diversi difetti di piattaforma, interventi sulle prestazioni, e test automatici e di integrazione.</li>
           </ul>
         </div>
 
         <div class="project">
-          <h4 class="project-title">Portale Agenti B2B <span class="stack">Java · JSF · Tailwind CSS</span></h4>
+          <h4 class="project-title"><span data-i18n="b2b-title">Portale Agenti B2B</span> <span class="stack">Java · JSF · Tailwind CSS</span></h4>
           <ul>
-            <li>Portale per gli agenti di vendita collegato all'ERP: catalogo, carrello, ordini e stampe.</li>
-            <li>Personalizzazioni per cliente: condizioni di pagamento, disponibilità e articoli obsoleti a catalogo.</li>
+            <li data-i18n="b2b-b1">Portale per gli agenti di vendita collegato all'ERP: catalogo, carrello, ordini e stampe.</li>
+            <li data-i18n="b2b-b2">Personalizzazioni per cliente: condizioni di pagamento, disponibilità e articoli obsoleti a catalogo.</li>
           </ul>
         </div>
 
         <div class="project">
           <h4 class="project-title">Fast Order <span class="stack">Java · Tailwind CSS</span></h4>
           <ul>
-            <li>Pagine articoli e provvigioni: filtri per categoria merceologica e articoli obsoleti, gestione massiva per agente.</li>
-            <li>Refactoring del codice duplicato e correzione di una vulnerabilità SQL injection.</li>
+            <li data-i18n="fo-b1">Pagine articoli e provvigioni: filtri per categoria merceologica e articoli obsoleti, gestione massiva per agente.</li>
+            <li data-i18n="fo-b2">Refactoring del codice duplicato e correzione di una vulnerabilità SQL injection.</li>
           </ul>
         </div>
       </div>
@@ -315,91 +342,232 @@
   </section>
 
   <section>
-    <h2>Progetti personali</h2>
+    <h2 data-i18n="h-projects">Progetti personali</h2>
 
     <article class="entry">
-      <span class="when">Marzo – agosto 2026</span>
+      <span class="when" data-i18n="pet-when">Marzo – agosto 2026</span>
       <span class="dot"></span>
       <div class="content">
         <h3 class="entry-title">PET, Personal Expense Tracker</h3>
-        <p class="where">App web installabile (PWA) per tracciare entrate e uscite · progetto privato, non ancora open source</p>
+        <p class="where" data-i18n="pet-where">App web installabile (PWA) per tracciare entrate e uscite · progetto privato, non ancora open source</p>
         <ul>
-          <li><span class="lead">Stack:</span> <span class="stack">Next.js 16 · React 19 · TypeScript · Tailwind CSS · PostgreSQL (Supabase) · Drizzle ORM · pgvector · NextAuth · Zod · Vitest · Docker</span></li>
-          <li><span class="lead">Assistente AI in chat:</span> Claude con tool use per gestire le transazioni in linguaggio naturale, con ricerca semantica su embedding.</li>
-          <li><span class="lead">Costi dell'AI:</span> prompt caching e un classificatore che evita il modello per le richieste più semplici.</li>
-          <li><span class="lead">Import dei movimenti:</span> parser per PayPal, Revolut e UniCredit (CSV e PDF) con classificazione tramite AI e deduplica.</li>
-          <li><span class="lead">Funzioni:</span> dashboard, grafici, transazioni ricorrenti automatiche, notifiche push, input vocale, utenti con ruoli e dati separati.</li>
-          <li><span class="lead">Qualità:</span> suite di test automatici, validazione degli input, correzione delle segnalazioni SonarQube, versione mobile ottimizzata.</li>
-          <li><span class="lead">In corso:</span> collegamento ai conti bancari via Open Banking.</li>
+          <li><span class="lead" data-i18n="pet-lead-stack">Stack:</span> <span class="stack">Next.js 16 · React 19 · TypeScript · Tailwind CSS · PostgreSQL (Supabase) · Drizzle ORM · pgvector · NextAuth · Zod · Vitest · Docker</span></li>
+          <li><span class="lead" data-i18n="pet-lead-ai">Assistente AI in chat:</span> <span data-i18n="pet-ai">Claude con tool use per gestire le transazioni in linguaggio naturale, con ricerca semantica su embedding.</span></li>
+          <li><span class="lead" data-i18n="pet-lead-cost">Costi dell'AI:</span> <span data-i18n="pet-cost">prompt caching e un classificatore che evita il modello per le richieste più semplici.</span></li>
+          <li><span class="lead" data-i18n="pet-lead-import">Import dei movimenti:</span> <span data-i18n="pet-import">parser per PayPal, Revolut e UniCredit (CSV e PDF) con classificazione tramite AI e deduplica.</span></li>
+          <li><span class="lead" data-i18n="pet-lead-features">Funzioni:</span> <span data-i18n="pet-features">dashboard, grafici, transazioni ricorrenti automatiche, notifiche push, input vocale, utenti con ruoli e dati separati.</span></li>
+          <li><span class="lead" data-i18n="pet-lead-quality">Qualità:</span> <span data-i18n="pet-quality">suite di test automatici, validazione degli input, correzione delle segnalazioni SonarQube, versione mobile ottimizzata.</span></li>
+          <li><span class="lead" data-i18n="pet-lead-progress">In corso:</span> <span data-i18n="pet-progress">collegamento ai conti bancari via Open Banking.</span></li>
         </ul>
       </div>
     </article>
   </section>
 
   <section>
-    <h2>Competenze tecniche</h2>
+    <h2 data-i18n="h-skills">Competenze tecniche</h2>
     <dl class="skills">
-      <dt>Linguaggi</dt>
+      <dt data-i18n="sk-langs">Linguaggi</dt>
       <dd>Java, TypeScript, JavaScript, SQL, Python, HTML, CSS</dd>
       <dt>Backend</dt>
       <dd>Jakarta EE (JSF, CDI), WildFly, Maven, Django REST Framework, Node.js</dd>
       <dt>Frontend</dt>
       <dd>PrimeFaces, React, Next.js, Angular, Tailwind CSS</dd>
-      <dt>Test e qualità</dt>
+      <dt data-i18n="sk-test">Test e qualità</dt>
       <dd>JUnit, Playwright, Vitest, Zod, SonarQube</dd>
-      <dt>DevOps e strumenti</dt>
+      <dt data-i18n="sk-devops">DevOps e strumenti</dt>
       <dd>Git, GitHub Actions (CI), Docker, Vercel, Linux, IntelliJ IDEA</dd>
       <dt>AI</dt>
-      <dd>Sviluppo con agenti (Claude Code: regole, skill, hook)</dd>
+      <dd data-i18n="sk-ai">Sviluppo con agenti (Claude Code: regole, skill, hook)</dd>
     </dl>
   </section>
 
   <section>
-    <h2>Lingue</h2>
+    <h2 data-i18n="h-languages">Lingue</h2>
     <dl class="skills">
-      <dt>Italiano</dt>
-      <dd>Madrelingua</dd>
-      <dt>Inglese</dt>
-      <dd>Livello B2 — esame Cambridge <span class="now">in corso</span></dd>
+      <dt data-i18n="lang-it">Italiano</dt>
+      <dd data-i18n="lang-it-level">Madrelingua</dd>
+      <dt data-i18n="lang-en">Inglese</dt>
+      <dd data-i18n="lang-en-level">Livello B2 — esame Cambridge <span class="now">in corso</span></dd>
     </dl>
   </section>
 
   <section>
-    <h2>Istruzione</h2>
+    <h2 data-i18n="h-education">Istruzione</h2>
 
     <article class="entry">
       <span class="when">2026</span>
       <span class="dot"></span>
       <div class="content">
-        <h3 class="entry-title">Diploma di Perito Informatico</h3>
-        <p class="where">ITIS "E. Fermi", Barletta · votazione 95/100</p>
+        <h3 class="entry-title" data-i18n="edu1-title">Diploma di Perito Informatico</h3>
+        <p class="where" data-i18n="edu1-where">ITIS "E. Fermi", Barletta · votazione 95/100</p>
       </div>
     </article>
 
     <article class="entry">
-      <span class="when">Da ottobre 2026</span>
+      <span class="when" data-i18n="edu2-when">Da ottobre 2026</span>
       <span class="dot"></span>
       <div class="content">
-        <h3 class="entry-title">Laurea triennale in Informatica e Tecnologie per la Produzione del Software (ITPS)</h3>
-        <p class="where">Università degli Studi di Bari «Aldo Moro»</p>
+        <h3 class="entry-title" data-i18n="edu2-title">Laurea triennale in Informatica e Tecnologie per la Produzione del Software (ITPS)</h3>
+        <p class="where" data-i18n="edu2-where">Università degli Studi di Bari «Aldo Moro»</p>
       </div>
     </article>
   </section>
 
-  <p class="gdpr">Autorizzo il trattamento dei dati personali contenuti nel curriculum ai sensi del Regolamento UE 2016/679 (GDPR) e del D.Lgs. 196/2003.</p>
+  <p class="gdpr" data-i18n="gdpr">Autorizzo il trattamento dei dati personali contenuti nel curriculum ai sensi del Regolamento UE 2016/679 (GDPR) e del D.Lgs. 196/2003.</p>
 
   </div>
 </main>
 
 <script>
+  var I18N = {
+    it: {
+      pdfBtn: 'Scarica PDF',
+      'h-profile': 'Profilo',
+      'profile-p1': "Sviluppatore full-stack con esperienza in software house su un gestionale ERP Java/Jakarta EE e sulle applicazioni web collegate: migrazione dell'interfaccia, correzione di difetti di piattaforma, prestazioni e test automatici.",
+      'profile-p2': "Sviluppo anche con agenti AI (Claude Code). Da ottobre 2026 studio Informatica e Tecnologie per la Produzione del Software all'Università degli Studi di Bari «Aldo Moro».",
+      'h-experience': 'Esperienza',
+      'exp-when': 'Luglio 2025 – <span class="now">oggi</span>',
+      'exp-where': 'Codeka · software house, Barletta',
+      'exp-desc': "Tirocinio scuola-lavoro, part-time pomeridiano durante l'anno scolastico e a tempo pieno nei periodi senza scuola. Lavoro in team, con sviluppo assistito da agenti AI (Claude Code).",
+      'jerp-title': 'JERP, gestionale ERP',
+      'jerp-b1': "Migrazione dell'interfaccia da ICEfaces/JSPX a Jakarta EE con JSF e PrimeFaces, su più moduli (contabilità, acquisti, vendite, logistica, magazzino).",
+      'jerp-b2': 'Individuazione e correzione di diversi difetti di piattaforma, interventi sulle prestazioni, e test automatici e di integrazione.',
+      'b2b-title': 'Portale Agenti B2B',
+      'b2b-b1': "Portale per gli agenti di vendita collegato all'ERP: catalogo, carrello, ordini e stampe.",
+      'b2b-b2': 'Personalizzazioni per cliente: condizioni di pagamento, disponibilità e articoli obsoleti a catalogo.',
+      'fo-b1': 'Pagine articoli e provvigioni: filtri per categoria merceologica e articoli obsoleti, gestione massiva per agente.',
+      'fo-b2': 'Refactoring del codice duplicato e correzione di una vulnerabilità SQL injection.',
+      'h-projects': 'Progetti personali',
+      'pet-when': 'Marzo – agosto 2026',
+      'pet-where': 'App web installabile (PWA) per tracciare entrate e uscite · progetto privato, non ancora open source',
+      'pet-lead-stack': 'Stack:',
+      'pet-lead-ai': 'Assistente AI in chat:',
+      'pet-ai': 'Claude con tool use per gestire le transazioni in linguaggio naturale, con ricerca semantica su embedding.',
+      'pet-lead-cost': "Costi dell'AI:",
+      'pet-cost': 'prompt caching e un classificatore che evita il modello per le richieste più semplici.',
+      'pet-lead-import': 'Import dei movimenti:',
+      'pet-import': 'parser per PayPal, Revolut e UniCredit (CSV e PDF) con classificazione tramite AI e deduplica.',
+      'pet-lead-features': 'Funzioni:',
+      'pet-features': 'dashboard, grafici, transazioni ricorrenti automatiche, notifiche push, input vocale, utenti con ruoli e dati separati.',
+      'pet-lead-quality': 'Qualità:',
+      'pet-quality': 'suite di test automatici, validazione degli input, correzione delle segnalazioni SonarQube, versione mobile ottimizzata.',
+      'pet-lead-progress': 'In corso:',
+      'pet-progress': 'collegamento ai conti bancari via Open Banking.',
+      'h-skills': 'Competenze tecniche',
+      'sk-langs': 'Linguaggi',
+      'sk-test': 'Test e qualità',
+      'sk-devops': 'DevOps e strumenti',
+      'sk-ai': 'Sviluppo con agenti (Claude Code: regole, skill, hook)',
+      'h-languages': 'Lingue',
+      'lang-it': 'Italiano',
+      'lang-it-level': 'Madrelingua',
+      'lang-en': 'Inglese',
+      'lang-en-level': 'Livello B2 — esame Cambridge <span class="now">in corso</span>',
+      'h-education': 'Istruzione',
+      'edu1-title': 'Diploma di Perito Informatico',
+      'edu1-where': 'ITIS "E. Fermi", Barletta · votazione 95/100',
+      'edu2-when': 'Da ottobre 2026',
+      'edu2-title': 'Laurea triennale in Informatica e Tecnologie per la Produzione del Software (ITPS)',
+      'edu2-where': 'Università degli Studi di Bari «Aldo Moro»',
+      gdpr: 'Autorizzo il trattamento dei dati personali contenuti nel curriculum ai sensi del Regolamento UE 2016/679 (GDPR) e del D.Lgs. 196/2003.',
+      pageTitle: 'Mario Monterisi — CV',
+      pageDesc: 'Curriculum vitae di Mario Monterisi, Full-Stack Java Developer — sviluppo gestionali ERP, applicazioni con agenti AI, studente di Informatica e Tecnologie per la Produzione del Software (UniBA).'
+    },
+    en: {
+      pdfBtn: 'Download PDF',
+      'h-profile': 'Profile',
+      'profile-p1': 'Full-stack developer with experience at a software house on a Java/Jakarta EE ERP system and its related web applications: UI migration, platform bug fixing, performance work, and automated testing.',
+      'profile-p2': 'I also build with AI agents (Claude Code). Starting October 2026 I\'m studying Computer Science and Software Production Technologies at the University of Bari "Aldo Moro".',
+      'h-experience': 'Experience',
+      'exp-when': 'July 2025 – <span class="now">present</span>',
+      'exp-where': 'Codeka · software house, Barletta, Italy',
+      'exp-desc': 'School-to-work internship, part-time in the afternoons during the school year and full-time during school breaks. I work in a team, with development assisted by AI agents (Claude Code).',
+      'jerp-title': 'JERP, ERP system',
+      'jerp-b1': 'Migrated the UI from ICEfaces/JSPX to Jakarta EE with JSF and PrimeFaces, across several modules (accounting, purchasing, sales, logistics, warehouse).',
+      'jerp-b2': 'Identified and fixed several platform defects, worked on performance, and wrote automated and integration tests.',
+      'b2b-title': 'B2B Agents Portal',
+      'b2b-b1': 'Portal for sales agents connected to the ERP: catalog, cart, orders, and print-outs.',
+      'b2b-b2': 'Per-client customizations: payment terms, stock availability, and discontinued catalog items.',
+      'fo-b1': 'Item and commission pages: filters by product category and discontinued items, bulk management per agent.',
+      'fo-b2': 'Refactored duplicated code and fixed a SQL injection vulnerability.',
+      'h-projects': 'Personal Projects',
+      'pet-when': 'March – August 2026',
+      'pet-where': 'Installable web app (PWA) to track income and expenses · private project, not yet open source',
+      'pet-lead-stack': 'Stack:',
+      'pet-lead-ai': 'AI chat assistant:',
+      'pet-ai': 'Claude with tool use to manage transactions in natural language, with embedding-based semantic search.',
+      'pet-lead-cost': 'AI costs:',
+      'pet-cost': 'prompt caching and a classifier that skips the model for simpler requests.',
+      'pet-lead-import': 'Transaction import:',
+      'pet-import': 'parsers for PayPal, Revolut, and UniCredit (CSV and PDF) with AI-based classification and deduplication.',
+      'pet-lead-features': 'Features:',
+      'pet-features': 'dashboard, charts, automatic recurring transactions, push notifications, voice input, users with roles and separate data.',
+      'pet-lead-quality': 'Quality:',
+      'pet-quality': 'automated test suite, input validation, SonarQube findings fixed, optimized mobile version.',
+      'pet-lead-progress': 'In progress:',
+      'pet-progress': 'bank account integration via Open Banking.',
+      'h-skills': 'Technical Skills',
+      'sk-langs': 'Programming Languages',
+      'sk-test': 'Testing & Quality',
+      'sk-devops': 'DevOps & Tools',
+      'sk-ai': 'Agent-based development (Claude Code: rules, skills, hooks)',
+      'h-languages': 'Languages',
+      'lang-it': 'Italian',
+      'lang-it-level': 'Native speaker',
+      'lang-en': 'English',
+      'lang-en-level': 'B2 level — Cambridge exam <span class="now">in progress</span>',
+      'h-education': 'Education',
+      'edu1-title': 'IT Technical High School Diploma',
+      'edu1-where': 'ITIS "E. Fermi", Barletta, Italy · grade 95/100',
+      'edu2-when': 'From October 2026',
+      'edu2-title': "Bachelor's Degree in Computer Science and Software Production Technologies (ITPS)",
+      'edu2-where': 'University of Bari "Aldo Moro"',
+      gdpr: 'I authorize the processing of the personal data in this document under EU Regulation 2016/679 (GDPR).',
+      pageTitle: 'Mario Monterisi — Résumé',
+      pageDesc: 'Résumé of Mario Monterisi, Full-Stack Java Developer — ERP systems, AI-agent applications, Computer Science student (University of Bari).'
+    }
+  };
+
+  var PDF_FILE = { it: 'CV_Mario_Monterisi.pdf', en: 'CV_Mario_Monterisi_EN.pdf' };
+
+  function applyLang(lang) {
+    var dict = I18N[lang];
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.documentElement.lang = lang;
+    document.title = dict.pageTitle;
+    var meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', dict.pageDesc);
+    document.querySelectorAll('#langSwitch button').forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+    try { localStorage.setItem('cvLang', lang); } catch (e) {}
+  }
+
+  document.getElementById('langSwitch').addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-lang]');
+    if (btn) applyLang(btn.getAttribute('data-lang'));
+  });
+
   document.getElementById('pdfBtn').addEventListener('click', function () {
+    var lang = document.documentElement.lang === 'en' ? 'en' : 'it';
     var a = document.createElement('a');
-    a.href = 'CV_Mario_Monterisi.pdf';
-    a.download = 'CV_Mario_Monterisi.pdf';
+    a.href = PDF_FILE[lang];
+    a.download = PDF_FILE[lang];
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
   });
+
+  (function init() {
+    var params = new URLSearchParams(location.search);
+    var initial = params.get('lang');
+    if (!initial) { try { initial = localStorage.getItem('cvLang'); } catch (e) {} }
+    if (initial !== 'en' && initial !== 'it') initial = 'it';
+    if (initial === 'en') applyLang('en');
+  })();
 </script>
 </body>
 </html>
