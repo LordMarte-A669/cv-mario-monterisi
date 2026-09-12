@@ -5,17 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mario Monterisi — CV</title>
 <meta name="description" content="Curriculum vitae di Mario Monterisi, Full-Stack Java Developer — sviluppo gestionali ERP, applicazioni con agenti AI, studente di Informatica e Tecnologie per la Produzione del Software (UniBA).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #15181d;
-    --muted: #5b6270;
-    --accent: #145c66;
-    --accent-soft: #e4eeef;
+    --ink: #1c1f24;
+    --muted: #666f78;
+    --accent: #146b82;
+    --accent-soft: #e2eef1;
     --ok: #3f7d56;
     --rule: #dfe2e7;
     --ground: #eef0f2;
     --paper: #fdfcfa;
     --ph: #fdf0c8;
+    --serif: 'Lora', Georgia, 'Iowan Old Style', 'Times New Roman', serif;
     --sans: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --mono: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   }
@@ -26,22 +30,23 @@
     padding-inline: 16px;
     background: var(--ground);
     color: var(--ink);
-    font-family: var(--sans);
-    font-size: 14.5px;
-    line-height: 1.55;
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.6;
   }
   main.sheet {
     max-width: 208mm;
     margin: 28px auto;
     background: var(--paper);
     box-shadow: 0 2px 20px rgba(20, 30, 45, .12);
-    border-top: 5px solid var(--accent);
+    overflow: hidden;
   }
-  .sheet-inner { padding: 0 17mm 15mm; }
+  .sheet-inner { padding: 24px 17mm 15mm; }
   a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
   a:hover { border-bottom-color: currentColor; }
   .ph { background: var(--ph); padding: 0 4px; border-radius: 2px; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  svg.icn { width: 13px; height: 13px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 
   /* toolbar (screen only) */
   .toolbar {
@@ -68,112 +73,151 @@
   .btn-pdf:hover { background: var(--accent); }
   .btn-pdf svg { width: 15px; height: 15px; flex: none; }
 
-  /* header */
-  header.identity {
+  /* header band */
+  .band {
+    background: var(--accent);
+    color: #fff;
+    padding: 26px 17mm;
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 18px 24px;
-    padding: 30px 17mm 22px;
-    border-bottom: 2px solid var(--rule);
+    align-items: center;
+    gap: 20px;
   }
-  .id-text { flex: 1 1 240px; min-width: 0; }
   .avatar {
     flex: none;
-    width: 76px; height: 76px;
+    width: 68px; height: 68px;
     border-radius: 50%;
-    border: 1px solid var(--rule);
-    background: var(--accent-soft);
-    color: var(--accent);
+    border: 2px solid rgba(255,255,255,.55);
+    background: rgba(255,255,255,.12);
+    color: rgba(255,255,255,.85);
     display: flex; align-items: center; justify-content: center;
-    font-family: var(--mono); font-size: 10px; text-align: center;
+    font-family: var(--sans); font-size: 10px; text-align: center;
     line-height: 1.3;
   }
-  h1 { margin: 0; font-size: 28px; letter-spacing: -.01em; line-height: 1.15; }
-  .role { margin: 3px 0 10px; color: var(--accent); font-size: 15px; font-weight: 600; }
-  .contacts { display: flex; flex-wrap: wrap; gap: 5px 18px; margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: 13.3px; }
-  .contacts li { display: flex; align-items: center; gap: 6px; }
-  .contacts .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex: none; }
+  .band-main { flex: 1 1 auto; min-width: 0; }
+  h1 { margin: 0; font-size: 30px; font-weight: 600; line-height: 1.15; }
+  h1 .family { text-transform: uppercase; letter-spacing: .04em; }
+  .role { margin: 4px 0 0; font-style: italic; font-size: 15.5px; color: rgba(255,255,255,.9); font-weight: 400; }
+  .contacts {
+    flex: none;
+    margin: 0; padding: 0; list-style: none;
+    font-size: 12.6px;
+    text-align: right;
+    color: rgba(255,255,255,.92);
+  }
+  .contacts li { display: flex; align-items: center; justify-content: flex-end; gap: 6px; margin: 3px 0; }
+  .contacts a { color: #fff; }
+  .contacts a:hover { border-bottom-color: rgba(255,255,255,.6); }
 
   h2 {
-    margin: 22px 0 9px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid var(--rule);
+    position: relative;
+    margin: 26px 0 12px;
+    padding-left: 13px;
     color: var(--accent);
-    font-size: 12px;
+    font-family: var(--serif);
+    font-size: 17.5px;
     font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+  }
+  h2::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 2px; bottom: 2px;
+    width: 3px;
+    background: var(--accent);
   }
   p { margin: 0 0 6px; }
 
-  .entry { margin-bottom: 12px; }
-  .entry-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 12px; }
-  .entry-title { margin: 0; font-size: 15.5px; font-weight: 700; }
-  .when { color: var(--muted); font-size: 13.3px; white-space: nowrap; font-variant-numeric: tabular-nums; }
-  .now { color: var(--ok); font-weight: 600; }
-  .where { margin: 0 0 4px; color: var(--muted); font-size: 13.3px; }
+  .entry {
+    display: grid;
+    grid-template-columns: 98px 14px 1fr;
+    column-gap: 8px;
+    margin-bottom: 14px;
+  }
+  .entry .when {
+    grid-column: 1;
+    text-align: right;
+    color: var(--muted);
+    font-size: 12.6px;
+    padding-top: 3px;
+    line-height: 1.35;
+    font-variant-numeric: tabular-nums;
+  }
+  .entry .dot { grid-column: 2; display: flex; justify-content: center; padding-top: 8px; }
+  .entry .dot::before { content: ''; width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid var(--accent); }
+  .entry .content { grid-column: 3; min-width: 0; }
+  .now { color: var(--ok); font-weight: 600; font-style: normal; }
+
+  .entry-title { margin: 0; font-size: 16px; font-weight: 700; }
+  .where { margin: 1px 0 4px; color: var(--muted); font-style: italic; font-size: 14px; }
 
   .project { margin: 10px 0 0; break-inside: avoid; }
-  .project-title { margin: 0 0 3px; font-size: 14.3px; font-weight: 700; }
-  .stack { font-family: var(--mono); font-weight: 400; color: var(--muted); font-size: 12.3px; }
+  .project-title { margin: 0 0 3px; font-size: 14.5px; font-weight: 700; }
+  .stack { font-family: var(--mono); font-weight: 400; color: var(--muted); font-size: 12px; font-style: normal; }
   ul { margin: 2px 0 0; padding-left: 18px; }
-  li { margin: 2px 0; }
+  li { margin: 3px 0; }
   li::marker { color: var(--accent); }
   .lead { font-weight: 600; }
 
-  .skills { display: grid; grid-template-columns: 150px 1fr; gap: 5px 14px; margin: 0; }
-  .skills dt { font-weight: 600; }
-  .skills dd { margin: 0; font-family: var(--mono); font-size: 13px; color: var(--ink); }
+  .skills { display: grid; grid-template-columns: 150px 1fr; gap: 6px 14px; margin: 0; }
+  .skills dt { font-weight: 700; }
+  .skills dd { margin: 0; font-family: var(--mono); font-size: 12.6px; color: var(--ink); }
 
-  .gdpr { margin-top: 22px; color: var(--muted); font-size: 11.3px; }
+  .gdpr { margin-top: 24px; color: var(--muted); font-size: 11.3px; font-style: italic; }
 
   @media (max-width: 860px) {
     main.sheet { margin: 20px auto; }
-    header.identity { padding: 26px 10mm 20px; }
-    .sheet-inner { padding: 0 10mm 14mm; }
+    .band { padding: 24px 10mm; }
+    .sheet-inner { padding: 22px 10mm 14mm; }
   }
 
   @media (max-width: 640px) {
     body { font-size: 14px; }
     .toolbar { padding-inline: 4px; }
-    main.sheet { margin: 14px auto; border-top-width: 4px; }
-    header.identity { padding: 22px 20px 18px; gap: 14px 20px; }
-    .avatar { width: 60px; height: 60px; font-size: 9px; }
-    .sheet-inner { padding: 0 20px 20px; }
-    h1 { font-size: 22px; }
-    h2 { margin: 20px 0 8px; }
+    main.sheet { margin: 14px auto; }
+    .band { flex-wrap: wrap; padding: 22px 20px; gap: 14px; }
+    .avatar { width: 56px; height: 56px; font-size: 9px; }
+    .band-main { flex-basis: 100%; }
+    .contacts { flex-basis: 100%; text-align: left; }
+    .contacts li { justify-content: flex-start; }
+    .sheet-inner { padding: 20px 20px 20px; }
+    h1 { font-size: 24px; }
+    h2 { margin: 22px 0 10px; font-size: 16px; }
+    .entry { grid-template-columns: 78px 12px 1fr; column-gap: 6px; }
+    .entry .when { font-size: 11.5px; }
     .skills { grid-template-columns: 1fr; gap: 0; }
     .skills dd { margin-bottom: 8px; }
-    .entry-head { gap: 2px 12px; }
   }
 
   @media (max-width: 380px) {
-    header.identity { padding: 18px 16px 16px; }
-    .sheet-inner { padding: 0 16px 16px; }
-    .avatar { width: 52px; height: 52px; }
-    h1 { font-size: 20px; }
-    .contacts { font-size: 12.6px; gap: 4px 14px; }
+    .band { padding: 18px 16px; }
+    .sheet-inner { padding: 18px 16px 16px; }
+    .avatar { width: 48px; height: 48px; }
+    h1 { font-size: 21px; }
+    .entry { grid-template-columns: 1fr; }
+    .entry .when { text-align: left; grid-column: 1; padding-top: 0; }
+    .entry .dot { display: none; }
+    .entry .content { grid-column: 1; }
   }
 
   @page { size: A4; margin: 12mm 14mm; }
   @media print {
     .toolbar { display: none; }
-    body { padding: 0; background: #fff; font-size: 10pt; line-height: 1.42; }
-    main.sheet { max-width: none; margin: 0; box-shadow: none; border-top-width: 4pt; }
-    header.identity { padding: 0 0 10pt; border-bottom-width: 1.5pt; }
-    .sheet-inner { padding: 0; }
-    .avatar { width: 54px; height: 54px; }
-    h1 { font-size: 20pt; }
-    .role { font-size: 11.5pt; }
-    .contacts, .when, .where, .stack { font-size: 9pt; }
-    h2 { font-size: 9pt; margin-top: 13pt; break-after: avoid; }
-    .entry-title { font-size: 10.5pt; }
+    body { padding: 0; background: #fff; font-size: 10pt; line-height: 1.45; }
+    main.sheet { max-width: none; margin: 0; box-shadow: none; }
+    .band { padding: 16pt 14mm; }
+    .sheet-inner { padding: 12pt 0 0; }
+    .avatar { width: 50px; height: 50px; }
+    h1 { font-size: 19pt; }
+    .role { font-size: 11pt; }
+    .contacts { font-size: 8.5pt; }
+    h2 { font-size: 12pt; margin-top: 15pt; break-after: avoid; }
+    .entry { break-inside: avoid; }
+    .entry-title { font-size: 11pt; }
+    .where { font-size: 9.5pt; }
     .project-title { font-size: 10pt; }
-    .entry-head { break-after: avoid; }
+    .stack { font-size: 8.5pt; }
     .gdpr { font-size: 7.5pt; }
     a { color: var(--ink); border-bottom: none; }
+    .contacts a { color: #fff; }
   }
 </style>
 <script type="application/ld+json">
@@ -210,18 +254,18 @@
 </div>
 
 <main class="sheet">
-  <header class="identity">
-    <div class="id-text">
-      <h1>Mario Monterisi</h1>
-      <p class="role">Full-Stack Java Developer</p>
-      <ul class="contacts">
-        <li><span class="dot"></span>Barletta (BT)</li>
-        <li><span class="dot"></span><a href="mailto:mariomonterisi123@gmail.com">mariomonterisi123@gmail.com</a></li>
-        <li><span class="dot"></span><a href="tel:+393500162850">+39 350 016 2850</a></li>
-        <li><span class="dot"></span><a href="https://github.com/LordMarte-A669">github.com/LordMarte-A669</a></li>
-      </ul>
-    </div>
+  <header class="band">
     <div class="avatar" aria-hidden="true">FOTO</div>
+    <div class="band-main">
+      <h1>Mario <span class="family">Monterisi</span></h1>
+      <p class="role">Full-Stack Java Developer</p>
+    </div>
+    <ul class="contacts">
+      <li><svg class="icn" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg>Barletta (BT)</li>
+      <li><svg class="icn" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg><a href="mailto:mariomonterisi123@gmail.com">mariomonterisi123@gmail.com</a></li>
+      <li><svg class="icn" viewBox="0 0 24 24"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2Z"/></svg><a href="tel:+393500162850">+39 350 016 2850</a></li>
+      <li><svg class="icn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg><a href="https://github.com/LordMarte-A669">github.com/LordMarte-A669</a></li>
+    </ul>
   </header>
 
   <div class="sheet-inner">
@@ -236,35 +280,36 @@
     <h2>Esperienza</h2>
 
     <article class="entry">
-      <div class="entry-head">
+      <span class="when">Luglio 2025 – <span class="now">oggi</span></span>
+      <span class="dot"></span>
+      <div class="content">
         <h3 class="entry-title">Full-Stack Java Developer</h3>
-        <span class="when">Luglio 2025 – <span class="now">oggi</span></span>
-      </div>
-      <p class="where">Codeka · software house, Barletta</p>
-      <p>Tirocinio scuola-lavoro, part-time pomeridiano durante l'anno scolastico e a tempo pieno nei periodi senza scuola. Lavoro in team, con sviluppo assistito da agenti AI (Claude Code).</p>
+        <p class="where">Codeka · software house, Barletta</p>
+        <p>Tirocinio scuola-lavoro, part-time pomeridiano durante l'anno scolastico e a tempo pieno nei periodi senza scuola. Lavoro in team, con sviluppo assistito da agenti AI (Claude Code).</p>
 
-      <div class="project">
-        <h4 class="project-title">JERP, gestionale ERP <span class="stack">Java · Jakarta EE · JSF/PrimeFaces · PostgreSQL · WildFly</span></h4>
-        <ul>
-          <li>Migrazione dell'interfaccia da ICEfaces/JSPX a Jakarta EE con JSF e PrimeFaces, su più moduli (contabilità, acquisti, vendite, logistica, magazzino).</li>
-          <li>Individuazione e correzione di diversi difetti di piattaforma, interventi sulle prestazioni, e test automatici e di integrazione.</li>
-        </ul>
-      </div>
+        <div class="project">
+          <h4 class="project-title">JERP, gestionale ERP <span class="stack">Java · Jakarta EE · JSF/PrimeFaces · PostgreSQL · WildFly</span></h4>
+          <ul>
+            <li>Migrazione dell'interfaccia da ICEfaces/JSPX a Jakarta EE con JSF e PrimeFaces, su più moduli (contabilità, acquisti, vendite, logistica, magazzino).</li>
+            <li>Individuazione e correzione di diversi difetti di piattaforma, interventi sulle prestazioni, e test automatici e di integrazione.</li>
+          </ul>
+        </div>
 
-      <div class="project">
-        <h4 class="project-title">Portale Agenti B2B <span class="stack">Java · JSF · Tailwind CSS</span></h4>
-        <ul>
-          <li>Portale per gli agenti di vendita collegato all'ERP: catalogo, carrello, ordini e stampe.</li>
-          <li>Personalizzazioni per cliente: condizioni di pagamento, disponibilità e articoli obsoleti a catalogo.</li>
-        </ul>
-      </div>
+        <div class="project">
+          <h4 class="project-title">Portale Agenti B2B <span class="stack">Java · JSF · Tailwind CSS</span></h4>
+          <ul>
+            <li>Portale per gli agenti di vendita collegato all'ERP: catalogo, carrello, ordini e stampe.</li>
+            <li>Personalizzazioni per cliente: condizioni di pagamento, disponibilità e articoli obsoleti a catalogo.</li>
+          </ul>
+        </div>
 
-      <div class="project">
-        <h4 class="project-title">Fast Order <span class="stack">Java · Tailwind CSS</span></h4>
-        <ul>
-          <li>Pagine articoli e provvigioni: filtri per categoria merceologica e articoli obsoleti, gestione massiva per agente.</li>
-          <li>Refactoring del codice duplicato e correzione di una vulnerabilità SQL injection.</li>
-        </ul>
+        <div class="project">
+          <h4 class="project-title">Fast Order <span class="stack">Java · Tailwind CSS</span></h4>
+          <ul>
+            <li>Pagine articoli e provvigioni: filtri per categoria merceologica e articoli obsoleti, gestione massiva per agente.</li>
+            <li>Refactoring del codice duplicato e correzione di una vulnerabilità SQL injection.</li>
+          </ul>
+        </div>
       </div>
     </article>
   </section>
@@ -273,20 +318,21 @@
     <h2>Progetti personali</h2>
 
     <article class="entry">
-      <div class="entry-head">
+      <span class="when">Marzo – agosto 2026</span>
+      <span class="dot"></span>
+      <div class="content">
         <h3 class="entry-title">PET, Personal Expense Tracker</h3>
-        <span class="when">Marzo – agosto 2026</span>
+        <p class="where">App web installabile (PWA) per tracciare entrate e uscite · progetto privato, non ancora open source</p>
+        <ul>
+          <li><span class="lead">Stack:</span> <span class="stack">Next.js 16 · React 19 · TypeScript · Tailwind CSS · PostgreSQL (Supabase) · Drizzle ORM · pgvector · NextAuth · Zod · Vitest · Docker</span></li>
+          <li><span class="lead">Assistente AI in chat:</span> Claude con tool use per gestire le transazioni in linguaggio naturale, con ricerca semantica su embedding.</li>
+          <li><span class="lead">Costi dell'AI:</span> prompt caching e un classificatore che evita il modello per le richieste più semplici.</li>
+          <li><span class="lead">Import dei movimenti:</span> parser per PayPal, Revolut e UniCredit (CSV e PDF) con classificazione tramite AI e deduplica.</li>
+          <li><span class="lead">Funzioni:</span> dashboard, grafici, transazioni ricorrenti automatiche, notifiche push, input vocale, utenti con ruoli e dati separati.</li>
+          <li><span class="lead">Qualità:</span> suite di test automatici, validazione degli input, correzione delle segnalazioni SonarQube, versione mobile ottimizzata.</li>
+          <li><span class="lead">In corso:</span> collegamento ai conti bancari via Open Banking.</li>
+        </ul>
       </div>
-      <p class="where">App web installabile (PWA) per tracciare entrate e uscite · progetto privato, non ancora open source</p>
-      <ul>
-        <li><span class="lead">Stack:</span> <span class="stack">Next.js 16 · React 19 · TypeScript · Tailwind CSS · PostgreSQL (Supabase) · Drizzle ORM · pgvector · NextAuth · Zod · Vitest · Docker</span></li>
-        <li><span class="lead">Assistente AI in chat:</span> Claude con tool use per gestire le transazioni in linguaggio naturale, con ricerca semantica su embedding.</li>
-        <li><span class="lead">Costi dell'AI:</span> prompt caching e un classificatore che evita il modello per le richieste più semplici.</li>
-        <li><span class="lead">Import dei movimenti:</span> parser per PayPal, Revolut e UniCredit (CSV e PDF) con classificazione tramite AI e deduplica.</li>
-        <li><span class="lead">Funzioni:</span> dashboard, grafici, transazioni ricorrenti automatiche, notifiche push, input vocale, utenti con ruoli e dati separati.</li>
-        <li><span class="lead">Qualità:</span> suite di test automatici, validazione degli input, correzione delle segnalazioni SonarQube, versione mobile ottimizzata.</li>
-        <li><span class="lead">In corso:</span> collegamento ai conti bancari via Open Banking.</li>
-      </ul>
     </article>
   </section>
 
@@ -322,19 +368,21 @@
     <h2>Istruzione</h2>
 
     <article class="entry">
-      <div class="entry-head">
+      <span class="when">2026</span>
+      <span class="dot"></span>
+      <div class="content">
         <h3 class="entry-title">Diploma di Perito Informatico</h3>
-        <span class="when">2026</span>
+        <p class="where">ITIS "E. Fermi", Barletta · votazione 95/100</p>
       </div>
-      <p class="where">ITIS "E. Fermi", Barletta · votazione 95/100</p>
     </article>
 
     <article class="entry">
-      <div class="entry-head">
+      <span class="when">Da ottobre 2026</span>
+      <span class="dot"></span>
+      <div class="content">
         <h3 class="entry-title">Laurea triennale in Informatica e Tecnologie per la Produzione del Software (ITPS)</h3>
-        <span class="when">Da ottobre 2026</span>
+        <p class="where">Università degli Studi di Bari «Aldo Moro»</p>
       </div>
-      <p class="where">Università degli Studi di Bari «Aldo Moro»</p>
     </article>
   </section>
 
