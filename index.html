@@ -104,17 +104,6 @@
     align-items: center;
     gap: 20px;
   }
-  .avatar {
-    flex: none;
-    width: 68px; height: 68px;
-    border-radius: 50%;
-    border: 2px solid rgba(255,255,255,.55);
-    background: rgba(255,255,255,.12);
-    color: rgba(255,255,255,.85);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--sans); font-size: 10px; text-align: center;
-    line-height: 1.3;
-  }
   .band-main { flex: 1 1 auto; min-width: 0; }
   h1 { margin: 0; font-size: 30px; font-weight: 600; line-height: 1.15; }
   h1 .family { text-transform: uppercase; letter-spacing: .04em; }
@@ -196,7 +185,6 @@
     .toolbar { padding-inline: 4px; }
     main.sheet { margin: 14px auto; }
     .band { flex-wrap: wrap; padding: 22px 20px; gap: 14px; }
-    .avatar { width: 56px; height: 56px; font-size: 9px; }
     .band-main { flex-basis: 100%; }
     .contacts { flex-basis: 100%; text-align: left; }
     .contacts li { justify-content: flex-start; }
@@ -213,7 +201,6 @@
     .toolbar { flex-wrap: wrap; }
     .band { padding: 18px 16px; }
     .sheet-inner { padding: 18px 16px 16px; }
-    .avatar { width: 48px; height: 48px; }
     h1 { font-size: 21px; }
     .entry { grid-template-columns: 1fr; }
     .entry .when { text-align: left; grid-column: 1; padding-top: 0; }
@@ -228,7 +215,6 @@
     main.sheet { max-width: none; margin: 0; box-shadow: none; }
     .band { padding: 16pt 14mm; }
     .sheet-inner { padding: 12pt 0 0; }
-    .avatar { width: 50px; height: 50px; }
     h1 { font-size: 19pt; }
     .role { font-size: 11pt; }
     .contacts { font-size: 8.5pt; }
@@ -250,7 +236,6 @@
   "name": "Mario Monterisi",
   "jobTitle": "Full-Stack Java Developer",
   "email": "mailto:mariomonterisi123@gmail.com",
-  "telephone": "+39 350 016 2850",
   "address": { "@type": "PostalAddress", "addressLocality": "Barletta", "addressRegion": "BT", "addressCountry": "IT" },
   "url": "https://github.com/LordMarte-A669",
   "sameAs": ["https://github.com/LordMarte-A669"],
@@ -282,7 +267,6 @@
 
 <main class="sheet">
   <header class="band">
-    <div class="avatar" aria-hidden="true">FOTO</div>
     <div class="band-main">
       <h1>Mario <span class="family">Monterisi</span></h1>
       <p class="role">Full-Stack Java Developer</p>
@@ -290,7 +274,6 @@
     <ul class="contacts">
       <li><svg class="icn" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.4"/></svg>Barletta (BT)</li>
       <li><svg class="icn" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg><a href="mailto:mariomonterisi123@gmail.com">mariomonterisi123@gmail.com</a></li>
-      <li><svg class="icn" viewBox="0 0 24 24"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2Z"/></svg><a href="tel:+393500162850">+39 350 016 2850</a></li>
       <li><svg class="icn" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg><a href="https://github.com/LordMarte-A669">github.com/LordMarte-A669</a></li>
     </ul>
   </header>
@@ -312,7 +295,7 @@
       <div class="content">
         <h3 class="entry-title">Full-Stack Java Developer</h3>
         <p class="where" data-i18n="exp-where">Codeka · software house, Barletta</p>
-        <p data-i18n="exp-desc">Tirocinio scuola-lavoro, part-time pomeridiano durante l'anno scolastico e a tempo pieno nei periodi senza scuola. Lavoro in team, con sviluppo assistito da agenti AI (Claude Code).</p>
+        <p data-i18n="exp-desc">Iniziato come tirocinio scuola-lavoro, oggi part-time pomeridiano (4 ore al giorno) in parallelo all'università. Lavoro in team, con sviluppo assistito da agenti AI (Claude Code).</p>
 
         <div class="project">
           <h4 class="project-title"><span data-i18n="jerp-title">JERP, gestionale ERP</span> <span class="stack">Java · Jakarta EE · JSF/PrimeFaces · PostgreSQL · WildFly</span></h4>
@@ -352,6 +335,19 @@
         <p class="where"><span data-i18n="sciamn-where">App Android gratuita e non ufficiale per gli studenti dell'Università e del Politecnico di Bari, con sito e pagine orario aggiornate ogni giorno</span> · <a href="https://lordmarte-a669.github.io/sciamn/">lordmarte-a669.github.io/sciamn</a></p>
         <ul>
           <li><span class="lead" data-i18n="pet-lead-stack">Stack:</span> <span class="stack">JavaScript · Capacitor 8 · Java (plugin Android) · Cloudflare Workers + D1 · GitHub Actions</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="entry">
+      <span class="when" data-i18n="dt-when">Ottobre 2026 – in corso</span>
+      <span class="dot"></span>
+      <div class="content">
+        <h3 class="entry-title">dati-trasporti, <span data-i18n="dt-title">orari dei treni del Sud Italia come dati aperti</span></h3>
+        <p class="where"><span data-i18n="dt-where">Dataset pubblico in JSON, aggiornato ogni settimana da una pipeline automatica; alimenta Sciamn</span> · <a href="https://github.com/LordMarte-A669/dati-trasporti">github.com/LordMarte-A669/dati-trasporti</a></p>
+        <ul>
+          <li><span class="lead" data-i18n="dt-lead-data">Orari:</span> <span data-i18n="dt-data">Trenitalia, Ferrotramviaria, Ferrovie Appulo Lucane e Ferrovie del Gargano dal Punto di Accesso Nazionale (NeTEx), in un formato compatto con schema versionato.</span></li>
+          <li><span class="lead" data-i18n="dt-lead-stations">Anagrafe delle stazioni:</span> <span data-i18n="dt-stations">515 stazioni con i codici di cinque sistemi diversi (ViaggiaTreno, lefrecce, RFI, eticket, NAP) e le coordinate da OpenStreetMap, con licenza ODbL.</span></li>
         </ul>
       </div>
     </article>
@@ -440,7 +436,7 @@
       'h-experience': 'Esperienza',
       'exp-when': 'Luglio 2025 – <span class="now">oggi</span>',
       'exp-where': 'Codeka · software house, Barletta',
-      'exp-desc': "Tirocinio scuola-lavoro, part-time pomeridiano durante l'anno scolastico e a tempo pieno nei periodi senza scuola. Lavoro in team, con sviluppo assistito da agenti AI (Claude Code).",
+      'exp-desc': "Iniziato come tirocinio scuola-lavoro, oggi part-time pomeridiano (4 ore al giorno) in parallelo all'università. Lavoro in team, con sviluppo assistito da agenti AI (Claude Code).",
       'jerp-title': 'JERP, gestionale ERP',
       'jerp-b1': "Migrazione dell'interfaccia da ICEfaces/JSPX a Jakarta EE con JSF e PrimeFaces, su più moduli (contabilità, acquisti, vendite, logistica, magazzino).",
       'jerp-b2': 'Individuazione e correzione di diversi difetti di piattaforma, interventi sulle prestazioni, e test automatici e di integrazione.',
@@ -453,6 +449,13 @@
       'sciamn-when': 'Settembre 2026 – in corso',
       'sciamn-title': 'orario delle lezioni UniBA e Poliba',
       'sciamn-where': "App Android gratuita e non ufficiale per gli studenti dell'Università e del Politecnico di Bari, con sito e pagine orario aggiornate ogni giorno",
+      'dt-when': 'Ottobre 2026 – in corso',
+      'dt-title': 'orari dei treni del Sud Italia come dati aperti',
+      'dt-where': 'Dataset pubblico in JSON, aggiornato ogni settimana da una pipeline automatica; alimenta Sciamn',
+      'dt-lead-data': 'Orari:',
+      'dt-data': 'Trenitalia, Ferrotramviaria, Ferrovie Appulo Lucane e Ferrovie del Gargano dal Punto di Accesso Nazionale (NeTEx), in un formato compatto con schema versionato.',
+      'dt-lead-stations': 'Anagrafe delle stazioni:',
+      'dt-stations': '515 stazioni con i codici di cinque sistemi diversi (ViaggiaTreno, lefrecce, RFI, eticket, NAP) e le coordinate da OpenStreetMap, con licenza ODbL.',
       'pet-when': 'Marzo – agosto 2026',
       'pet-where': 'App web installabile (PWA) per tracciare entrate e uscite · progetto privato, non ancora open source',
       'pet-lead-stack': 'Stack:',
@@ -496,7 +499,7 @@
       'h-experience': 'Experience',
       'exp-when': 'July 2025 – <span class="now">present</span>',
       'exp-where': 'Codeka · software house, Barletta, Italy',
-      'exp-desc': 'School-to-work internship, part-time in the afternoons during the school year and full-time during school breaks. I work in a team, with development assisted by AI agents (Claude Code).',
+      'exp-desc': 'Started as a school-to-work internship; now part-time in the afternoons (4 hours a day) alongside university. I work in a team, with development assisted by AI agents (Claude Code).',
       'jerp-title': 'JERP, ERP system',
       'jerp-b1': 'Migrated the UI from ICEfaces/JSPX to Jakarta EE with JSF and PrimeFaces, across several modules (accounting, purchasing, sales, logistics, warehouse).',
       'jerp-b2': 'Identified and fixed several platform defects, worked on performance, and wrote automated and integration tests.',
@@ -509,6 +512,13 @@
       'sciamn-when': 'September 2026 – ongoing',
       'sciamn-title': 'class timetable for UniBA and Poliba',
       'sciamn-where': 'Free, unofficial Android app for University of Bari and Polytechnic of Bari students, with a website and timetable pages updated daily',
+      'dt-when': 'October 2026 – ongoing',
+      'dt-title': 'Southern Italy train timetables as open data',
+      'dt-where': 'Public JSON dataset, updated weekly by an automated pipeline; it powers Sciamn',
+      'dt-lead-data': 'Timetables:',
+      'dt-data': 'Trenitalia, Ferrotramviaria, Ferrovie Appulo Lucane and Ferrovie del Gargano from the Italian National Access Point (NeTEx), in a compact format with a versioned schema.',
+      'dt-lead-stations': 'Station registry:',
+      'dt-stations': '515 stations with their codes in five different systems (ViaggiaTreno, lefrecce, RFI, eticket, NAP) and OpenStreetMap coordinates, under the ODbL licence.',
       'pet-when': 'March – August 2026',
       'pet-where': 'Installable web app (PWA) to track income and expenses · private project, not yet open source',
       'pet-lead-stack': 'Stack:',

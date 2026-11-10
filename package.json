@@ -1,0 +1,11 @@
+{
+  "name": "cv-mario-monterisi",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "pdf": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "puppeteer-core": "25.16.0"
+  }
+}
